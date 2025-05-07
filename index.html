@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Budget Planner</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="website-header">
+    <div class="container">
+      <h1 class="logo">Smart Budget</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="#expenses"><i class="fas fa-list"></i> Expenses</a></li>
+          <li><a href="#reports"><i class="fas fa-chart-pie"></i> Reports</a></li>
+          <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+      </nav>
+      <div class="user-profile">
+        <span>Welcome, User</span>
+        <div class="avatar">U</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="content-area">
+      <div class="budget-cards">
+        <div class="card income-card">
+          <h3>Monthly Income</h3>
+          <div class="amount" id="summary-income">$0.00</div>
+          <div class="card-footer">
+            <button id="edit-income-btn"><i class="fas fa-edit"></i> Edit</button>
+          </div>
+        </div>
+        
+        <div class="card expenses-card">
+          <h3>Total Expenses</h3>
+          <div class="amount" id="summary-expenses">$0.00</div>
+          <div class="card-footer">
+            <button id="view-expenses-btn"><i class="fas fa-eye"></i> View All</button>
+          </div>
+        </div>
+        
+        <div class="card balance-card">
+          <h3>Remaining Balance</h3>
+          <div class="amount" id="summary-remaining">$0.00</div>
+          <div class="card-footer">
+            <span id="balance-status">On Track</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="budget-sections">
+        <section class="budget-section" id="income-section">
+          <h2><i class="fas fa-wallet"></i> Set Monthly Income</h2>
+          <div class="form-group">
+            <label for="income-input">Income Amount</label>
+            <div class="input-with-button">
+              <input type="number" id="income-input" placeholder="Enter your monthly income" min="0" step="0.01">
+              <button id="set-income-btn" class="primary-btn">Save Income</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="budget-section" id="expense-section">
+          <h2><i class="fas fa-plus-circle"></i> Add New Expense</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expense-name-input">Expense Name</label>
+              <input type="text" id="expense-name-input" placeholder="e.g., Rent, Groceries" maxlength="30">
+            </div>
+            <div class="form-group">
+              <label for="expense-value-input">Amount</label>
+              <input type="number" id="expense-value-input" placeholder="Enter amount" min="0" step="0.01">
+            </div>
+          </div>
+          <button id="add-expense-btn" class="primary-btn"><i class="fas fa-plus"></i> Add Expense</button>
+        </section>
+
+        <section class="budget-section" id="expense-list-section">
+          <div class="section-header">
+            <h2><i class="fas fa-receipt"></i> Recent Expenses</h2>
+            <div class="section-actions">
+              <button id="clear-expenses-btn" class="secondary-btn">Clear All</button>
+            </div>
+          </div>
+          <div id="expense-list" class="expense-table">
+            <div class="table-header">
+              <div class="table-cell">Name</div>
+              <div class="table-cell">Amount</div>
+              <div class="table-cell">Actions</div>
+            </div>
+            <div class="table-body" id="expense-table-body">
+              <!-- Expenses will be added here by JavaScript -->
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget">
+        <h3>Budget Progress</h3>
+        <div class="progress-container">
+          <div class="progress-bar" id="budget-progress-bar"></div>
+          <div class="progress-text" id="budget-progress-text">0% used</div>
+        </div>
+      </div>
+      
+      <div class="sidebar-widget">
+        <h3>Expense Categories</h3>
+        <div class="categories-list" id="categories-list">
+          <!-- Will be populated by JavaScript -->
+        </div>
+      </div>
+      
+      <div class="sidebar-widget">
+        <h3>Quick Stats</h3>
+        <div class="stats-item">
+          <span>Daily Average</span>
+          <span id="daily-average">$0.00</span>
+        </div>
+        <div class="stats-item">
+          <span>Largest Expense</span>
+          <span id="largest-expense">$0.00</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="website-footer">
+    <div class="container">
+      <p>&copy; 2023 Smart Budget Planner. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
